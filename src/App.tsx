@@ -1,8 +1,17 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import { client } from "../sanity.ts";
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+import { client } from '../sanity.ts';
+import { Routes, Route } from 'react-router-dom';
+// pages
+import Home from './pages/home/Home.tsx';
+import Consult from './pages/consult/Consult.tsx';
+import Philanthropy from './pages/Philanthropy/Philanthropy.tsx';
+import CreativeShowcase from './pages/creative-showcase/CreativeShowcase.tsx';
+import Contact from './pages/contact/Contact.tsx';
+import PageNotFound from './pages/pageNotFound/PageNotFound.tsx';
+import Slug from './pages/Slug/slug.tsx';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,28 +24,15 @@ function App() {
   fetchData();
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/consult" element={<Consult />} />
+      <Route path="/philanthropy" element={<Philanthropy />} />
+      <Route path="/creative-showcase" element={<CreativeShowcase />} />
+      <Route path="/creative-showcase/:slug" element={<Slug />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
   );
 }
 
