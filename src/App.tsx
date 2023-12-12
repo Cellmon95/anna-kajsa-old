@@ -11,7 +11,7 @@ import Philanthropy from './pages/Philanthropy/Philanthropy.tsx';
 import CreativeShowcase from './pages/creative-showcase/CreativeShowcase.tsx';
 import Contact from './pages/contact/Contact.tsx';
 import PageNotFound from './pages/pageNotFound/PageNotFound.tsx';
-import Slug from './pages/Slug/slug.tsx';
+import Slug from './pages/creative-showcase/slug/Slug.tsx';
 
 function App() {
   const [count, setCount] = useState(0);
